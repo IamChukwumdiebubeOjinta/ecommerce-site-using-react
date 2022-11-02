@@ -1,4 +1,4 @@
-import { Badge, Box, Image } from "@chakra-ui/react";
+import { Badge, Box, Flex, Image } from "@chakra-ui/react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import React from "react";
 
@@ -6,12 +6,11 @@ function Category() {
   const property = {
     imageUrl: "https://bit.ly/2Z4KKcF",
     imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
+    category: "men",
+    title: "Product",
     formattedPrice: "$1,900.00",
     reviewCount: 34,
-    rating: 4,
+    rating: 3
   };
 
   return (
@@ -20,9 +19,6 @@ function Category() {
 
       <Box p="6">
         <Box display="flex" alignItems="baseline">
-          <Badge borderRadius="full" px="2" colorScheme="teal">
-            New
-          </Badge>
           <Box
             color="gray.500"
             fontWeight="semibold"
@@ -31,37 +27,41 @@ function Category() {
             textTransform="uppercase"
             ml="2"
           >
-            {property.beds} beds &bull; {property.baths} baths
+            {property.category}'s Wear
           </Box>
         </Box>
 
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          noOfLines={1}
-        >
-          {property.title}
-        </Box>
-
-        <Box>
-          {property.formattedPrice}
-          <Box as="span" color="gray.600" fontSize="sm">
-            / wk
+        <Flex alignItems={"baseline"} justifyContent={"space-between"}>
+          <Box
+            mt="1"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            noOfLines={1}
+          >
+            {property.title}
           </Box>
-        </Box>
 
-        <Box display="flex" mt="2" alignItems="center">
+          <Box>
+            {property.formattedPrice}
+            <Box as="span" color="gray.600" fontSize="sm">
+              / wk
+            </Box>
+          </Box>
+        </Flex>
+
+        <Box display="flex" mt="2" alignItems="center" justifyContent={'space-between'}>
+          <Box display={'flex'}>
           {Array(5)
             .fill("")
             .map((_, i) => (
               <StarIcon
                 key={i}
                 color={i < property.rating ? "teal.500" : "gray.300"}
-                className='w-6 h-6'
+                className="w-6 h-6"
               />
             ))}
+          </Box>
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
             {property.reviewCount} reviews
           </Box>

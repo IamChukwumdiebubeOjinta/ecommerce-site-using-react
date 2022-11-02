@@ -7,9 +7,8 @@ export default function Hero() {
             <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Summer styles are finally here
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the
-              harsh elements of a world that doesn't care if you live or die.
+            <p className="mt-2 text-xl text-gray-500">
+            We are the Curators of modern fashion and the believers of simplicity in ties to what we wear. Bube's Store is a destination concept store and online haven for style seekers with simplistic taste. A fashion selection with a personal touch.
             </p>
 
             <a
