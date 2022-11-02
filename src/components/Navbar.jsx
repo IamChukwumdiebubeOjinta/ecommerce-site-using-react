@@ -9,13 +9,18 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
 import {
   QuestionMarkCircleIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
-import React from "react";
+import React, { useState } from "react";
+import Modal from "./Common/Modal/Modal";
 
 const Navbar = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
   return (
     <React.Fragment>
       <Flex
@@ -91,10 +96,20 @@ const Navbar = () => {
               <MenuItem>Coming soon</MenuItem>
             </MenuList>
           </Menu>
-          <Box>Login/Signup</Box>
-          <Box className="flex items-center justify-center gap-1">
-            <ShoppingCartIcon className="w-6" /> <p>My Cart </p>
-          </Box>
+          <motion.div
+            onClick={() => (modalOpen ? close() : open())}
+            whileHover={{ scale: 1.1 }}
+          >
+            <Box>
+              <a className="hover:underline cursor-pointer">Login/Signup</a>
+            </Box>
+          </motion.div>
+          {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+          <motion.div onClick={() => null} whileHover={{ scale: 1.1 }}>
+            <Box className="flex items-center justify-center gap-1 hover:underline cursor-pointer">
+              <ShoppingCartIcon className="w-6" /> <p>My Cart </p>
+            </Box>
+          </motion.div>
         </HStack>
       </Flex>
     </React.Fragment>
