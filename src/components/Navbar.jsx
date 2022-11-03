@@ -15,12 +15,12 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
-import Modal from "./Common/Modal/Modal";
+import ChakraModel from "./Common/Modal/ChakraModel";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  
   return (
     <React.Fragment>
       <Flex
@@ -96,20 +96,28 @@ const Navbar = () => {
               <MenuItem>Coming soon</MenuItem>
             </MenuList>
           </Menu>
-          <motion.div
-            onClick={() => (modalOpen ? close() : open())}
-            whileHover={{ scale: 1.1 }}
-          >
-            <Box>
-              <a className="hover:underline cursor-pointer">Login/Signup</a>
-            </Box>
-          </motion.div>
-          {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
-          <motion.div onClick={() => null} whileHover={{ scale: 1.1 }}>
-            <Box className="flex items-center justify-center gap-1 hover:underline cursor-pointer">
-              <ShoppingCartIcon className="w-6" /> <p>My Cart </p>
-            </Box>
-          </motion.div>
+          {!isLoggedIn && (
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <ChakraModel
+                title={"Login/Sign Up"}
+                // heading={isSignUp ? "Sign Up" : "Login"}
+                danger="Cancel"
+              />
+            </motion.div>
+          )}
+          {isLoggedIn && (
+            <>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <ChakraModel title={"Logout"} />
+              </motion.div>
+
+              <motion.div onClick={() => null} whileHover={{ scale: 1.1 }}>
+                <Box className="flex items-center justify-center gap-1 hover:underline cursor-pointer">
+                  <ShoppingCartIcon className="w-6" /> <p>My Cart </p>
+                </Box>
+              </motion.div>
+            </>
+          )}
         </HStack>
       </Flex>
     </React.Fragment>

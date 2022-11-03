@@ -9,6 +9,7 @@ import {
   BestDeals,
   Footer,
 } from "../components";
+import ChakraModel from "../components/Common/Modal/ChakraModel";
 
 const LandingPage = () => {
   return (
@@ -24,6 +25,7 @@ const LandingPage = () => {
       </div>
       <BestDeals />
       <QuoteOne />
+      <ChakraModel/>
       <Footer />
     </React.Fragment>
   );
