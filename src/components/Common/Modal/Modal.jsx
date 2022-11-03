@@ -33,7 +33,11 @@ const Modal = ({ handleClose, text }) => {
         initial="hidden"
         animate="visible"
         exit="exit"
-      ></motion.div>
+      >
+        <button onClick={handleClose} className="w-9 bg-black top-2">
+          Close
+        </button>
+      </motion.div>
     </Backdrop>
   );
 };
