@@ -74,7 +74,7 @@ const Auth = () => {
           </motion.div>
         </InputGroup>
         <Button>Submit</Button>
-        <Button onClick={() => setIsSignUp(!isSignUp)}>
+        <Button onClick={() => setIsSignUp(isSignUp => !isSignUp)}>
           {isSignUp ? 'Already a member?' : 'Are you new here?'}
         </Button>
       </Stack>

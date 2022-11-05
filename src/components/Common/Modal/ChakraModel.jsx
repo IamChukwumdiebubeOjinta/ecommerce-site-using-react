@@ -35,13 +35,13 @@ const dropIn = {
   },
 };
 
-function ChakraModel({ title, heading, danger }) {
+function ChakraModel({ title, style, heading, danger }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSignUp, setIsSignUp] = useState(false);
 
   return (
     <>
-      <Box className="hover:underline cursor-pointer" onClick={onOpen}>
+      <Box className="hover:underline cursor-pointer" onClick={onOpen} style={{background: style}}>
         {title}
       </Box>
 

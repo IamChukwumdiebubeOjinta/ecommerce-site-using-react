@@ -1,21 +1,9 @@
 import React from "react";
-import {
-  NavBanner,
-  Navbar,
-  Hero,
-  Categories,
-  QuoteOne,
-  Options,
-  BestDeals,
-  Footer,
-} from "../components";
-import ChakraModel from "../components/Common/Modal/ChakraModel";
+import { Hero, Categories, QuoteOne, Options, BestDeals } from "../components";
 
 const LandingPage = () => {
   return (
     <React.Fragment>
-      <NavBanner />
-      <Navbar />
       <Hero />
       {/* Router T */}
       <Options />
@@ -25,8 +13,6 @@ const LandingPage = () => {
       </div>
       <BestDeals />
       <QuoteOne />
-      <ChakraModel/>
-      <Footer />
     </React.Fragment>
   );
 };

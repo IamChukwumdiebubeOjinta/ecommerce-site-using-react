@@ -20,7 +20,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  
+
   return (
     <React.Fragment>
       <Flex
@@ -100,7 +100,7 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.1 }}>
               <ChakraModel
                 title={"Login/Sign Up"}
-                // heading={isSignUp ? "Sign Up" : "Login"}
+                
                 danger="Cancel"
               />
             </motion.div>
