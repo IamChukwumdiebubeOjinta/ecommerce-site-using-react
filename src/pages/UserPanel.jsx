@@ -23,6 +23,7 @@ import React from "react";
 import { Banner } from "../components/Common/Panels";
 import Panel from "./Panel";
 import { Link } from "react-router-dom";
+import Products from "../components/Common/Products/Products";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -74,8 +75,8 @@ const UserPanel = () => {
         <Heading as={"h2"} className="sr-only">
           Products
         </Heading>
-        <Grid className="grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-          <form className="hidden lg:block border-r-4  pt-6">
+        <Grid className="grid-cols-1 gap-y-10 lg:grid-cols-4">
+          <form className="hidden lg:block border-r-4 sticky  pt-6">
             <Heading as={"h3"} className="sr-only">
               Categories
             </Heading>
@@ -126,11 +127,12 @@ const UserPanel = () => {
           </form>
 
           {/* Product grid */}
-          <div className="lg:col-span-3 min-h-[75vh] pt-6">
+          <div className="lg:col-span-3 min-h-[75vh]">
             {/* Cut and remove from user to admin */}
             {/* Replace with your content */}
             {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
-            Something
+            <Products />
+            <Products />
             {/* /End replace */}
           </div>
         </Grid>

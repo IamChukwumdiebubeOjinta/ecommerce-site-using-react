@@ -17,7 +17,7 @@ const Panel = ({ children }) => {
         </Box>
       </Box>
       {/* Use the this part  */}
-      <Box className="mx-auto px-4 sm:px-6 lg:px-8">{children}</Box>
+      <Box className="mx-auto">{children}</Box>
     </section>
   );
 };
