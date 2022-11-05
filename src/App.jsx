@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Footer, NavBanner, Navbar } from "./components";
-import { ErrorPage, LandingPage, UserPanel, AdminPanel } from "./pages";
+import { ErrorPage, LandingPage, UserPanel, AdminPanel, ProductPage } from "./pages";
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -17,12 +17,16 @@ const App = () => {
       component: <LandingPage />,
     },
     {
-      path: "/dashboard/user",
+      path: "/products",
       component: <UserPanel />,
     },
     {
-      path: "/dashboard/admin",
+      path: "/dashboard",
       component: <AdminPanel />,
+    },
+    {
+      path: "/products/:id",
+      component: <ProductPage />,
     },
   ];
   return (

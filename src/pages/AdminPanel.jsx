@@ -36,9 +36,7 @@ const AdminPanel = () => {
         className="justify-between border-b border-gray-200 py-6 px-36"
       >
         <Banner text={"Admin Dashboard"} />
-        <Flex alignItems={"center"}>
-          
-        </Flex>
+        <Flex alignItems={"center"}></Flex>
       </Flex>
       <Box aria-labelledby="products-heading" className="">
         <Heading as={"h2"} className="sr-only">
@@ -61,7 +59,10 @@ const AdminPanel = () => {
             </ul>
             <Accordion allowToggle>
               {userFilters.map((section) => (
-                <AccordionItem key={section.id}>
+                <AccordionItem
+                  key={section.id}
+                  className="!border-y-0"
+                >
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
@@ -79,7 +80,7 @@ const AdminPanel = () => {
                           defaultValue={option.value}
                           type="checkbox"
                           defaultChecked={option.checked}
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded  text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -100,7 +101,7 @@ const AdminPanel = () => {
             {/* Cut and remove from user to admin */}
             {/* Replace with your content */}
             {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
-             <h3>Something</h3>
+            <h3>Something</h3>
             <h3>Something</h3>
             <h3>Something</h3>
             {/* /End replace */}

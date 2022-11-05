@@ -36,7 +36,7 @@ const UserPanel = () => {
         alignItems={"baseline"}
         className="justify-between border-b border-gray-200 py-6 px-36"
       >
-        <Banner text={"Dashboard"} />
+        <Banner text={"Products"} />
         <Flex alignItems={"center"}>
           <Menu className="relative inline-block text-left">
             <MenuButton className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -92,10 +92,10 @@ const UserPanel = () => {
             </ul>
             <Accordion allowToggle>
               {userFilters.map((section) => (
-                <AccordionItem key={section.id}>
+                <AccordionItem key={section.id} className="!border-y-0">
                   <h2>
-                    <AccordionButton>
-                      <Box flex="1" textAlign="left">
+                    <AccordionButton paddingInline={2}>
+                      <Box flex="1" textAlign="left" className="px-2">
                         {section.name}
                       </Box>
                       <AccordionIcon />
@@ -127,12 +127,13 @@ const UserPanel = () => {
           </form>
 
           {/* Product grid */}
-          <div className="lg:col-span-3 min-h-[75vh]">
+          <div className="lg:col-span-3 h-[65vh] overflow-y-scroll">
             {/* Cut and remove from user to admin */}
             {/* Replace with your content */}
-            {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
-            <Products />
-            <Products />
+            <div className="relative overflow-hidden">
+              <Products />
+              <Products />
+            </div>
             {/* /End replace */}
           </div>
         </Grid>
