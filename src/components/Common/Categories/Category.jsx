@@ -1,73 +1,99 @@
-import { Badge, Box, Flex, Image } from "@chakra-ui/react";
-import { StarIcon } from "@heroicons/react/20/solid";
-import React from "react";
+import { Badge, Box, Button, Flex, Image } from "@chakra-ui/react";
+import { EyeIcon, StarIcon } from "@heroicons/react/20/solid";
+import { property } from "../../../utils/constants";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
-function Category() {
-  const property = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    imageAlt: "Rear view of modern home with pool",
-    category: "men",
-    title: "Product",
-    formattedPrice: "$1,900.00",
-    reviewCount: 34,
-    rating: 3
-  };
+function Category({ item }) {
+  const [width, setWidth] = useState(0);
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+    <React.Fragment>
+      {/*  Inner Carousel */}
 
-      <Box p="6">
-        <Box display="flex" alignItems="baseline">
-          <Box
-            color="gray.500"
-            fontWeight="semibold"
-            letterSpacing="wide"
-            fontSize="xs"
-            textTransform="uppercase"
-            ml="2"
+      <motion.div
+        drag="x"
+        dragConstraints={{ right: 0, left: -width }}
+        className="flex border-black overflow-x-scroll"
+      >
+        {/* Item */}
+        {property.map((item, id) => (
+          <div
+            key={id}
+            className=" min-h-[20rem] min-w-[20rem] p-[20px] w-full flex flex-col"
           >
-            {property.category}'s Wear
-          </Box>
-        </Box>
-
-        <Flex alignItems={"baseline"} justifyContent={"space-between"}>
-          <Box
-            mt="1"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            noOfLines={1}
-          >
-            {property.title}
-          </Box>
-
-          <Box>
-            {property.formattedPrice}
-            <Box as="span" color="gray.600" fontSize="sm">
-              / wk
-            </Box>
-          </Box>
-        </Flex>
-
-        <Box display="flex" mt="2" alignItems="center" justifyContent={'space-between'}>
-          <Box display={'flex'}>
-          {Array(5)
-            .fill("")
-            .map((_, i) => (
-              <StarIcon
-                key={i}
-                color={i < property.rating ? "teal.500" : "gray.300"}
-                className="w-6 h-6"
+            <div className=" h-full w-full overflow-hidden">
+              <img
+                src={item.imageUrl}
+                alt={item.imageAlt}
+                className="h-full w-full object-cover object-center pointer-events-none"
               />
-            ))}
-          </Box>
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </div>
+            <Box p="6">
+              <Box display="flex" alignItems="baseline">
+                <Box
+                  color="gray.500"
+                  fontWeight="semibold"
+                  letterSpacing="wide"
+                  fontSize="xs"
+                  textTransform="uppercase"
+                >
+                  {item.category}'s Wear
+                </Box>
+              </Box>
+
+              <Flex alignItems={"baseline"} justifyContent={"space-between"}>
+                <Box
+                  mt="1"
+                  fontWeight="semibold"
+                  as="h4"
+                  lineHeight="tight"
+                  noOfLines={1}
+                >
+                  {item.title}
+                </Box>
+
+                <Box>
+                  {item.formattedPrice}
+                  <Box as="span" color="gray.600" fontSize="sm"></Box>
+                </Box>
+              </Flex>
+
+              <Box
+                display="flex"
+                mt="2"
+                alignItems="center"
+                justifyContent={"space-between"}
+              >
+                <Box display={"flex"}>
+                  {/* {Array(5)
+                    .fill("")
+                    .map((_, i) => (
+                      <StarIcon
+                        key={i}
+                        color={i < item.rating ? "teal.500" : "gray.300"}
+                        className="w-6 h-6"
+                      />
+                    ))} */}
+                  <Button>ADD TO CART </Button>
+                </Box>
+                <Box
+                  as="span"
+                  ml="2"
+                  color="gray.600"
+                  fontSize="sm"
+                  display={"flex"}
+                  gap={1}
+                  alignItems="center"
+                >
+                  {item.reviewCount} <EyeIcon className="w-4 h-4" />
+                </Box>
+              </Box>
+            </Box>
+          </div>
+        ))}
+      </motion.div>
+    </React.Fragment>
   );
 }
 

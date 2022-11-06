@@ -1,18 +1,27 @@
-import { Box, Flex, HStack } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../../../utils/styles";
 import Category from "./Category";
 
-const Categories = ({text}) => {
+const Categories = ({ text, item }) => {
+  const [width, setWidth] = useState(0)
+  const carousel = useRef();
+  useEffect(() => {
+console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
+
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    
+  }, []);
   return (
     <React.Fragment>
       <Box margin={"auto"} className="container">
         <h2 className="text-2xl leading-9 font-bold tracking-tight mb-6">
           {text}
         </h2>
-        <Flex className="overflow-y-auto">
-          <Category />
-        </Flex>
+        <motion.div ref={carousel} className="carousel h-[50rem]">
+          <Category width={width} />
+        </motion.div>
       </Box>
     </React.Fragment>
   );

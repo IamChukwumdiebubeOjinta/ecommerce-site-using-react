@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+  .carousel{
+    @apply flex gap-5 relative cursor-grab mx-[5%] overflow-hidden
+  }
+}

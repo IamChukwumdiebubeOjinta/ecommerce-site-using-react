@@ -9,9 +9,9 @@ const LandingPage = () => {
       <Options />
       <div className="flex flex-col gap-9 mb-8">
         <Categories text={"New Arrivals"} />
+        <BestDeals />
         <Categories text={"Recommend for you"} />
       </div>
-      <BestDeals />
       <QuoteOne />
     </React.Fragment>
   );

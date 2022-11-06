@@ -1,14 +1,12 @@
-import { Box, HStack, LinkBox } from "@chakra-ui/react";
+import { Box, Flex, HStack, LinkBox } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import React from "react";
 import styles from "../utils/styles";
 
 const Options = () => {
   return (
-    <HStack
-      alignItems={"center"}
-      justifyContent={"center"}
-      spacing={20}
-      className={`${styles.paddingY}`}
+    <motion.div
+      className={`${styles.paddingY} flex flex-wrap items-center justify-center gap-[10px]`}
     >
       {[
         ["Men", "/men"],
@@ -26,7 +24,7 @@ const Options = () => {
           </Box>
         </LinkBox>
       ))}
-    </HStack>
+    </motion.div>
   );
 };
 

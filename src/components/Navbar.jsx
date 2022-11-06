@@ -23,7 +23,11 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   return (
-    <React.Fragment>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+    >
       <Flex
         alignItems={"center"}
         py={2}
@@ -36,8 +40,14 @@ const Navbar = () => {
         <img src="./logo.png" alt="" />
 
         {/* Search Bar */}
-        <Flex maxW={600} flex={1} alignItems={"center"}>
-          <Flex bgColor={"transparent"} flex={1}>
+        <Box
+          as={"div"}
+          maxW={600}
+          flex={1}
+          alignItems={"center"}
+          className="hidden lg:flex"
+        >
+          <Flex bgColor={"transparent"} flex={1} className="">
             <Box
               flex={1}
               borderWidth={1}
@@ -81,7 +91,7 @@ const Navbar = () => {
               </motion.button>
             </LinkBox>
           </Flex>
-        </Flex>
+        </Box>
 
         {/* Others */}
         <HStack spacing={"20px"}>
@@ -95,11 +105,7 @@ const Navbar = () => {
             </MenuButton>
             <MenuList className="">
               {["FAQs", "Contact Us", "Coming soon"].map((item, id) => (
-                <MenuItem
-                  key={id}
-                  // className="hover:bg-[#f6ab29] hover:text-white focus:bg-[#f6ab29] focus:text-white"
-                  _focus={{ bg: "#f6ab29", color: "#fff" }}
-                >
+                <MenuItem key={id} _focus={{ bg: "#f6ab29", color: "#fff" }}>
                   <Link>{item}</Link>
                 </MenuItem>
               ))}
@@ -125,7 +131,7 @@ const Navbar = () => {
           )}
         </HStack>
       </Flex>
-    </React.Fragment>
+    </motion.div>
   );
 };
 

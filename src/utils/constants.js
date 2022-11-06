@@ -3,6 +3,60 @@ import twitter from '../images/twitter.svg'
 import linkedin from '../images/linkedin.svg'
 import instagram from '../images/instagram.svg'
 
+
+export const property = [
+  {
+    imageUrl:
+      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
+    imageAlt: "Rear view of modern home with pool",
+    category: "men",
+    title: "Product",
+    formattedPrice: "$1,900.00",
+    reviewCount: 34,
+    rating: 3,
+  },
+  {
+    imageUrl:
+      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
+    imageAlt: "Rear view of modern home with pool",
+    category: "men",
+    title: "Product",
+    formattedPrice: "$1,900.00",
+    reviewCount: 34,
+    rating: 3,
+  },
+  {
+    imageUrl:
+      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
+    imageAlt: "Rear view of modern home with pool",
+    category: "men",
+    title: "Product",
+    formattedPrice: "$1,900.00",
+    reviewCount: 34,
+    rating: 3,
+  },
+  {
+    imageUrl:
+      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
+    imageAlt: "Rear view of modern home with pool",
+    category: "men",
+    title: "Product",
+    formattedPrice: "$1,900.00",
+    reviewCount: 34,
+    rating: 3,
+  },
+  {
+    imageUrl:
+      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg",
+    imageAlt: "Rear view of modern home with pool",
+    category: "men",
+    title: "Product",
+    formattedPrice: "$1,900.00",
+    reviewCount: 34,
+    rating: 3,
+  },
+];
+
 export const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
   { name: 'Best Rating', href: '#', current: false },
