@@ -1,3 +1,13 @@
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import ChakraModel from "./Common/Modal/ChakraModel";
+import { motion } from "framer-motion";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import {
+  QuestionMarkCircleIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/24/outline";
 import {
   Flex,
   Box,
@@ -8,15 +18,6 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { motion } from "framer-motion";
-import {
-  QuestionMarkCircleIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/24/outline";
-import React, { useState } from "react";
-import ChakraModel from "./Common/Modal/ChakraModel";
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -41,8 +42,8 @@ const Navbar = () => {
               flex={1}
               borderWidth={1}
               borderColor={"gray.600"}
-              borderTopLeftRadius={15}
-              borderBottomLeftRadius={15}
+              borderTopLeftRadius={5}
+              borderBottomLeftRadius={5}
             >
               <input
                 type={"text"}
@@ -54,11 +55,13 @@ const Navbar = () => {
             </Box>
 
             <LinkBox
-              bgColor={"gray.600"}
-              borderBottomRightRadius={15}
-              borderTopRightRadius={15}
+              className="bg-[#f6ab29] text-white"
+              borderBottomRightRadius={5}
+              borderTopRightRadius={5}
             >
-              <button
+              <motion.button
+                whileHover={{ scale: 1.005 }}
+                whileTap={{ scale: 0.8 }}
                 className={
                   "flex items-center justify-center h-full w-full text-inherit px-[1.3em] outline-none"
                 }
@@ -75,7 +78,7 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-              </button>
+              </motion.button>
             </LinkBox>
           </Flex>
         </Flex>
@@ -90,19 +93,21 @@ const Navbar = () => {
                 <ChevronDownIcon className="h-11 w-11" />
               </div>
             </MenuButton>
-            <MenuList>
-              <MenuItem>FAQs</MenuItem>
-              <MenuItem>Contact Us</MenuItem>
-              <MenuItem>Coming soon</MenuItem>
+            <MenuList className="">
+              {["FAQs", "Contact Us", "Coming soon"].map((item, id) => (
+                <MenuItem
+                  key={id}
+                  // className="hover:bg-[#f6ab29] hover:text-white focus:bg-[#f6ab29] focus:text-white"
+                  _focus={{ bg: "#f6ab29", color: "#fff" }}
+                >
+                  <Link>{item}</Link>
+                </MenuItem>
+              ))}
             </MenuList>
           </Menu>
           {!isLoggedIn && (
-            <motion.div whileHover={{ scale: 1.1 }}>
-              <ChakraModel
-                title={"Login/Sign Up"}
-                
-                danger="Cancel"
-              />
+            <motion.div whileHover={{ scale: 1.1 }} whileTap>
+              <ChakraModel title={"Login/Sign Up"} danger="Cancel" />
             </motion.div>
           )}
           {isLoggedIn && (

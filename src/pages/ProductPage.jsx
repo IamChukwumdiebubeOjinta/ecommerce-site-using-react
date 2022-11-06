@@ -2,7 +2,7 @@ import { Box, Flex, HStack, useRadioGroup } from "@chakra-ui/react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { Banner } from "../components/Common/Panels";
-import { RadioHooks } from "../components/hooks";
+import { RadioHooks, useControllable } from "../components/hooks";
 
 import Panel from "./Panel";
 
@@ -86,9 +86,10 @@ const ProductPage = () => {
                   </div>
                 </Box>
                 <form>
-                  {/* Sizes */}
                   <div className="mt-10">
-                    <div className="flex items-center justify-between mb-4">
+                  {/* Sizes */}
+                              <useControllable />
+                    <div className="flex items-center justify-between my-4">
                       <h3 className="text-sm font-medium text-gray-900">
                         Sizes
                       </h3>
@@ -153,7 +154,13 @@ const ProductPage = () => {
                   </button>
                 </form>
 
-                {/*  */}
+                {/* Description */}
+                <Box className="mt-5">
+                <div className="space-y-6">
+                <p className="text-base text-gray-900">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed quam explicabo culpa nobis repellendus, harum nihil eligendi unde adipisci iste ab consectetur repudiandae reprehenderit, ipsam odit tenetur consequatur voluptatum quibusdam!</p>
+              </div>
+
+                </Box>
               </Box>
             </Flex>
           </Flex>

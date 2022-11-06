@@ -1,9 +1,9 @@
-import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
+import { Box, Flex } from "@chakra-ui/react";
 
 const NavBanner = () => {
   return (
-    <Box w={"100%"} height={"1.25rem"} marginBottom='5px'>
+    <Box w={"100%"} marginBottom="5px" className="bg-[#f6ab29] text-white">
       <Flex
         py={2}
         alignItems={"center"}
@@ -25,11 +25,10 @@ const NavBanner = () => {
               clipRule="evenodd"
             />
           </svg>
-
-          Phone no.
+          +234-(81)-0000(God_abeg_o)
         </p>
 
-        <p>Something here</p>
+        <p>Free delivery in some locations</p>
       </Flex>
     </Box>
   );

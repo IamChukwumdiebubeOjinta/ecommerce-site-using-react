@@ -24,14 +24,6 @@ const BreadCrumb = (props) => {
             </BreadcrumbItem>
           );
         })}
-
-        {/* <BreadcrumbItem>
-          <BreadcrumbLink href="#">About</BreadcrumbLink>
-        </BreadcrumbItem>
-
-        <BreadcrumbItem isCurrentPage>
-          <BreadcrumbLink href="#">Contact</BreadcrumbLink>
-        </BreadcrumbItem> */}
       </Breadcrumb>
     </React.Fragment>
   );
