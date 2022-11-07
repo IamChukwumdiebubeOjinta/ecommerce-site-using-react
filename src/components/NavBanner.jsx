@@ -1,14 +1,15 @@
 import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
+import {styles} from '../utils/styles'
 
 const NavBanner = () => {
   return (
-    <Box w={"100%"} marginBottom="5px" className="bg-[#f6ab29] text-white">
+    <Box w={"100%"} className="bg-[#f6ab29] text-white">
       <Flex
         py={2}
         alignItems={"center"}
         justifyContent={"space-between"}
-        className="container mx-auto"
+        className={`container mx-auto ${styles.paddingX}`}
       >
         {/* Call me */}
         <p className="flex items-center gap-1">

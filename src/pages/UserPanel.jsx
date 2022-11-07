@@ -34,7 +34,7 @@ const UserPanel = () => {
     <Panel>
       <Flex
         alignItems={"baseline"}
-        className="justify-between border-b border-gray-200 py-6 px-36"
+        className="justify-between border-b border-gray-200 py-6 sm:px-36 px-6"
       >
         <Banner text={"Products"} />
         <Flex alignItems={"center"}>
@@ -70,14 +70,15 @@ const UserPanel = () => {
             </MenuList>
           </Menu>
         </Flex>
+      
       </Flex>
       <Box aria-labelledby="products-heading" className="">
         <Heading as={"h2"} className="sr-only">
           Products
         </Heading>
-        <Grid className="grid-cols-1 gap-y-10 lg:grid-cols-4">
-          <form className="hidden lg:block border-r-4 sticky  pt-6">
-            <Heading as={"h3"} className="sr-only">
+        <Grid className="grid-cols-1 gap-y-10 lg:grid-cols-5">
+          <form className="hidden lg:block border-r-4 sticky  pt-6 px-4">
+            <Heading as={"h3"} className="sr-only px-4">
               Categories
             </Heading>
             <ul
@@ -127,7 +128,7 @@ const UserPanel = () => {
           </form>
 
           {/* Product grid */}
-          <div className="lg:col-span-3 h-[65vh] overflow-y-scroll">
+          <div className="lg:col-span-3 h-[75vh] overflow-y-scroll">
             {/* Cut and remove from user to admin */}
             {/* Replace with your content */}
             <div className="relative overflow-hidden">
@@ -136,6 +137,8 @@ const UserPanel = () => {
             </div>
             {/* /End replace */}
           </div>
+
+
         </Grid>
       </Box>
     </Panel>

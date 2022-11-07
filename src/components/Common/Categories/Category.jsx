@@ -14,13 +14,13 @@ function Category({ item }) {
       <motion.div
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
-        className="flex border-black overflow-x-scroll"
+        className="flex border-black overflow-x-scroll gap-[40px]"
       >
         {/* Item */}
         {property.map((item, id) => (
           <div
             key={id}
-            className=" min-h-[20rem] min-w-[20rem] p-[20px] w-full flex flex-col"
+            className=" sm:min-h-[20rem]  min-w-[20rem] w-full flex flex-col bg-white"
           >
             <div className=" h-full w-full overflow-hidden">
               <img

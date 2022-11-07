@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { styles } from "../utils/styles";
 
 export default function Hero() {
   return (
-    <div className="relative w-full container mx-auto overflow-hidden bg-white">
-      <div className="w-full relative flex flex-wrap justify-center items-center sm:justify-between sm:gap-5 gap-0">
+    <div className="relative w-full  overflow-hidden bg-gray-50">
+      <div
+        className={`w-full container mx-auto relative flex flex-wrap justify-center items-center sm:justify-between sm:gap-0 gap-5 ${styles.paddingX}`}
+      >
         {/* Hero Text */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -30,7 +33,7 @@ export default function Hero() {
             className="self-start border border-transparent bg-[#3e2c40] py-3 px-8 text-center font-medium text-white cursor-default hover:brightness-[1.2]"
           >
             {" "}
-            <Link to={"/user/items"} onClick={() => null}>
+            <Link to={"/products"} onClick={() => null}>
               Shop Collection
             </Link>
           </motion.div>
@@ -38,8 +41,8 @@ export default function Hero() {
 
         {/* Decorative image grid */}
         <div aria-hidden="true" className="pointer-events-none relative ">
-          <div className="flex items-center">
-            <div className="flex items-center space-x-6 lg:space-x-8">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center space-x-2 sm:space-x-6 lg:space-x-8">
               {/* Left */}
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
@@ -47,14 +50,14 @@ export default function Hero() {
                 transition={{ duration: 1 }}
                 className="grid flex-shrink-0 grid-cols-1 gap-y-2 lg:gap-y-4"
               >
-                <div className="h-64 w-44 overflow-hidden rounded-lg ">
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg ">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
                     alt=""
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
                     alt=""
@@ -63,24 +66,27 @@ export default function Hero() {
                 </div>
               </motion.div>
               {/* Center */}
-              <motion.div initial={{ y: -50, opacity: 0 }}
+              <motion.div
+                initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }} className="grid flex-shrink-0 grid-cols-1 gap-y-2 lg:gap-y-4">
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                transition={{ duration: 1 }}
+                className="grid flex-shrink-0 grid-cols-1 gap-y-2 lg:gap-y-4"
+              >
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
                     alt=""
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
                     alt=""
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
                     alt=""
@@ -89,17 +95,20 @@ export default function Hero() {
                 </div>
               </motion.div>
               {/* Right */}
-              <motion.div initial={{ y: 50, opacity: 0 }}
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }} className="grid flex-shrink-0 grid-cols-1 gap-y-2 lg:gap-y-4">
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                transition={{ duration: 1 }}
+                className="grid flex-shrink-0 grid-cols-1 gap-y-2 lg:gap-y-4"
+              >
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
                     alt=""
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                <div className="h-48 w-32 sm:h-64 sm:w-44 overflow-hidden rounded-lg">
                   <img
                     src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
                     alt=""

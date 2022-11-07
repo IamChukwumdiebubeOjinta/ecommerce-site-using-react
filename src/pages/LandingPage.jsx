@@ -7,7 +7,7 @@ const LandingPage = () => {
       <Hero />
       {/* Router T */}
       <Options />
-      <div className="flex flex-col gap-9 mb-8">
+      <div className="flex flex-col ">
         <Categories text={"New Arrivals"} />
         <BestDeals />
         <Categories text={"Recommend for you"} />

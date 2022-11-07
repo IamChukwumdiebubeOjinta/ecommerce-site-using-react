@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {styles} from '../utils/styles'
 import ChakraModel from "./Common/Modal/ChakraModel";
 import { motion } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -27,6 +28,7 @@ const Navbar = () => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
+      className={`z-20 bg-gray-50 ${styles.paddingX}`}
     >
       <Flex
         alignItems={"center"}
@@ -37,7 +39,10 @@ const Navbar = () => {
         className="container mx-auto"
       >
         {/* Logo */}
+        <Link to={'./'}>
+        
         <img src="./logo.png" alt="" />
+        </Link>
 
         {/* Search Bar */}
         <Box

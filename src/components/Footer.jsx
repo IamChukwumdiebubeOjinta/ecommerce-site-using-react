@@ -11,8 +11,9 @@ const Footer = () => {
 
       {/* Footer */}
 
+      <div className="w-full bg-[#f4ab29] text-white">
       <Box className="container mx-auto">
-        <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
+        <section className={`${styles.flexCenter} ${styles.paddingY} ${styles.paddingX} flex-col`}>
           <div
             className={`${styles.flexStart} md:flex-row flex-col w-full`}
           >
@@ -54,7 +55,8 @@ const Footer = () => {
           </div>
         </section>
       </Box>
-      <div className="w-full flex justify-center items-center md:flex-row flex-col py-1 border-t-[1px] border-t-[#3f3e45]">
+      </div>
+      <div className="w-full flex justify-center items-center md:flex-row flex-col py-1 border-t-[1px] border-t-[#3f3e45] bg-[#f4ab29] text-white">
         <p className="font-poppins font-normal text-center text-[18px] leading-[27px]">
           Copyright &copy; 2021 Bube's Store. All Rights Reserved.
         </p>

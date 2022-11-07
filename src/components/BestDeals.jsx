@@ -1,9 +1,11 @@
 import { Box } from "@chakra-ui/react";
+import {styles} from '../utils/styles'
 import React from "react";
 
 const BestDeals = () => {
   return (
-    <Box margin={"auto"} className="container">
+    <div className="bg-gray-50 py-7">
+      <Box margin={"auto"} className={`container ${styles.paddingX}`}>
       <div className="flex items-baseline">
         <span className="font-poppins text-[40px] leading-[38px] tracking-tight font-bold">C</span><span className="font-poppins text-[28px] leading-[38px] tracking-tight font-bold italic">heck this out...</span>
       </div>
@@ -43,6 +45,7 @@ const BestDeals = () => {
         </div>
       </div>
     </Box>
+    </div>
   );
 };
 

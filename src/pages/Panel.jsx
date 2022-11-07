@@ -9,15 +9,16 @@ const Panel = ({ children }) => {
     console.log(crumb);
   };
   return (
-    <section className="min-h-[650px]">
+    <section className="min-h-[85vh] h-full bg-gray-50">
       {/* BreadCrumbs */}
       <Box className={"bg-[#f6ab29] w-full"}>
         <Box className={`container mx-auto py-2`}>
           <BreadCrumb crumbs={crumbs} selected={selected} />
         </Box>
       </Box>
-      {/* Use the this part  */}
-      <Box className="mx-auto">{children}</Box>
+
+      {/* Children */}
+      <Box className="mx-auto h-full">{children}</Box>
     </section>
   );
 };
