@@ -1,13 +1,16 @@
-import LandingPage from "./LandingPage";
-import ErrorPage from "./ErrorPage";
-import ProductPage from "./ProductPage";
-import AdminPanel from "./AdminPanel";
-import UserPanel from "./UserPanel";
+import Home from "./Home/Home";
+import SinglePage from "./Single/SinglePage";
+import Checkout from "./Cart/Checkout";
+import Auth from "./Auth/Auth";
+import ErrorPage from './Error/ErrorPage'
+import { AdminPanel, UserPanel } from "./Panels";
 
 export {
-  LandingPage,
-  ErrorPage,
-  UserPanel,
+  Home,
   AdminPanel,
-  ProductPage
+  UserPanel,
+  SinglePage,
+  Checkout,
+  Auth,
+  ErrorPage
 }

@@ -1,18 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+
 import { Route, Routes } from "react-router-dom";
-import {styles} from './utils/styles'
-import { Footer, NavBanner, Navbar } from "./components";
-import {
-  ErrorPage,
-  LandingPage,
-  UserPanel,
-  AdminPanel,
-  ProductPage,
-} from "./pages";
+import { Footer, Header } from "./components";
+import { AdminPanel, Checkout, ErrorPage, Home, SinglePage, UserPanel } from "./pages";
 
 const App = () => {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  // const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   const routes = [
     {
@@ -21,7 +15,7 @@ const App = () => {
     },
     {
       path: "/",
-      component: <LandingPage />,
+      component: <Home />,
     },
     {
       path: "/products",
@@ -33,15 +27,16 @@ const App = () => {
     },
     {
       path: "/products/:id",
-      component: <ProductPage />,
+      component: <SinglePage />,
+    },
+    {
+      path: "/checkout",
+      component: <Checkout />,
     },
   ];
   return (
     <React.Fragment>
-      <div className={`sticky top-0 z-20 bg-gray-50`}>
-        <NavBanner />
-        <Navbar />
-      </div>
+      <Header />
       <Routes>
         {routes.map(({ path, component }, index) => (
           <Route key={`${path}-${index}`} path={path} element={component} />
