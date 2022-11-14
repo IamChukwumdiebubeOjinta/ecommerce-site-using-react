@@ -1,10 +1,28 @@
+import { createSlice } from "@reduxjs/toolkit"
 import { ADD_CART, REMOVE, REMOVE_ITEM } from "./actions"
+
+
 
 const initialStore = {
   carts: [],
 }
+
+const cartSlice = createSlice({
+  name: 'addToCart',
+  initialState: initialStore,
+  reducers: {
+    addCart(state, action) {
+      // Work on later
+      state.carts.push(action.payload)
+    }
+  }
+})
+
+export const getCart = state => state.cartReducer.carts
+
+export const { addCart } = cartSlice.actions
 // reducer
-export const cartReducer = (state = initialStore, action) => {
+export const cartReducer = (state, { payload }) => {
   switch (action.type) {
     case ADD_CART:
       const itemIndex = state.carts.findIndex((item) => item.id === action.payload.id)
@@ -46,3 +64,5 @@ export const cartReducer = (state = initialStore, action) => {
       return state
   }
 }
+
+export default cartSlice.reducer

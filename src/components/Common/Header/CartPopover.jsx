@@ -10,16 +10,38 @@ import {
   PopoverTrigger,
 } from "@chakra-ui/react";
 import { TrashIcon } from "@heroicons/react/24/outline";
-import React from "react";
-// import { useDispatch } from "react-redux";
-// import { DELETE } from "../../../helpers/action";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { DELETE } from "../../../helpers/action";
 
-const CartPopover = ({ text, cartList, getdata, del }) => {
+const CartPopover = ({ text, cartList, getdata }) => {
+  const [price, setPrice] = useState(0);
+  // const { id } = useParams();
+  // console.log(id);
+
+  const totals = () => {
+    let price = 0;
+    if (getdata.length) {
+      setPrice(
+        getdata
+          ?.map((item, id) => parseFloat(item.price) * item.qty)
+          ?.reduce((acc, curr) => acc + curr)
+      );
+    }
+  };
+
   // delete cart
-  // const dispatch = useDispatch();
-  // const del = (id) => {
-  //   dispatch(DELETE(id));
-  // };
+  const dispatch = useDispatch();
+  const del = (id) => {
+    dispatch(DELETE(id));
+  };
+
+  useEffect(() => {
+    totals();
+  }, [totals]);
+
   return (
     <div>
       <Popover className="max-w-[200px] w-full">
@@ -54,14 +76,16 @@ const CartPopover = ({ text, cartList, getdata, del }) => {
                         <TrashIcon
                           className="w-6 h-6"
                           aria-label="delete"
-                          // onClick={del()}
+                          onClick={() => del(e.id)}
                         />
                       </div>
                       <div className="flex justify-between">
                         <div className="flex gap-x-px">
                           <p>
                             Price:{" "}
-                            <span className="font-semibold">$ {e.price} </span>{" "}
+                            <span className="font-semibold">
+                              $ {e.price * e.qty}{" "}
+                            </span>{" "}
                           </p>
                           <span></span>
                         </div>
@@ -79,7 +103,7 @@ const CartPopover = ({ text, cartList, getdata, del }) => {
                 <hr />
                 <div className="flex justify-between">
                   <p>Total:</p>
-                  <span className="font-semibold"> 30 </span>
+                  <span className="font-semibold"> $ {price} </span>
                 </div>
               </>
             ) : (

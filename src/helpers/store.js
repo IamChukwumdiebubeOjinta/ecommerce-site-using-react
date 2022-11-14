@@ -1,5 +1,10 @@
-import { createStore } from "@reduxjs/toolkit"
-import root from "./combine"
+import cartReducer from "./reducer"
+import { configureStore } from "@reduxjs/toolkit"
 
-const store = createStore(root)
+const store = configureStore({
+  reducer: {
+    cartReducer
+  }
+}
+)
 export default store

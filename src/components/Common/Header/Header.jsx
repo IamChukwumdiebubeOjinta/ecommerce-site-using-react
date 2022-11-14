@@ -8,13 +8,14 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { AvatarBadge, Badge } from "@chakra-ui/react";
+import { Badge } from "@chakra-ui/react";
 
 // import Faq from "./FaqPopover";
 import ChakraModel from "../../../pages/Auth/ChakraModel";
 import FaqPopover from "./FaqPopover";
 import CartPopover from "./CartPopover";
 import { DELETE } from "../../../helpers/action";
+import { getCart } from "../../../helpers/reducer";
 
 const Header = () => {
   const [value, setValue] = useState("");
@@ -33,8 +34,8 @@ const Header = () => {
   };
 
   // cart add in shop
-  const getdata = useSelector((state) => state.cartReducer.carts);
-
+  const getdata = useSelector(getCart);
+  console.log(getdata);
   // delete cart
   const dispatch = useDispatch();
   const del = (id) => {
@@ -43,7 +44,6 @@ const Header = () => {
 
   // total prcie
   const [price, setPrice] = useState(0);
-  console.log(price);
 
   const totals = () => {
     let price = 0;
